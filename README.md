@@ -1,0 +1,1 @@
+This repo holds the code from a **ReactJS** tutorial I have followed. The tutorial can be accessed [here](https://www.airpair.com/reactjs/posts/reactjs-a-guide-for-rails-developers). Since I did everything the tutorial has instructed, I am now improving the code in order to learn new things.
