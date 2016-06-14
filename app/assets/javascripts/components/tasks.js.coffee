@@ -3,6 +3,10 @@
     tasks: @props.data
   getDefaultProps: ->
     tasks: []
+  updateTask: (task, data) ->
+    index = @state.tasks.indexOf task
+    tasks = React.addons.update(@state.tasks, { $splice: [[index, 1, data]]})
+    @replaceState tasks: tasks
   render: ->
     React.DOM.div
       className: 'container'
@@ -16,4 +20,4 @@
               React.DOM.th null, 'Done?'
           React.DOM.tbody null,
             for task in @state.tasks
-              React.createElement Task, key: task.id, task: task
+              React.createElement Task, key: task.id, task: task, handleCheckTask: @updateTask
