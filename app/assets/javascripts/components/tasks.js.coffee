@@ -3,6 +3,9 @@
     tasks: @props.data
   getDefaultProps: ->
     tasks: []
+  addTask: (task) ->
+    tasks = React.addons.update(@state.tasks, { $push: [task] })
+    @setState tasks: tasks
   updateTask: (task, data) ->
     index = @state.tasks.indexOf task
     tasks = React.addons.update(@state.tasks, { $splice: [[index, 1, data]]})
@@ -10,6 +13,12 @@
   render: ->
     React.DOM.div
       className: 'container'
+      React.DOM.h2
+        className: 'title'
+        'Tasks to do'
+      React.DOM.div
+        className: 'row'
+        React.createElement TaskForm, handleNewTask: @addTask
       React.DOM.div
         className: 'row'
         React.DOM.table
